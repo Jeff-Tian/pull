@@ -17,7 +17,8 @@
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "postinstall": "echo 'Thanks for using pull!'",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "i:taobao": "npm i --registry=https://registry.npm.taobao.org"
   },
   "repository": {
     "type": "git",
@@ -52,7 +53,7 @@
     "coffee": "^5.2.1",
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
-    "semantic-release": "^15.13.24",
+    "semantic-release": "^17.0.3",
     "sinon": "^8.1.1",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.6.2",
