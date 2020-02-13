@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - '10'
+install:
+  # - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+  # - chmod +x ./kubectl
+  # - sudo mv ./kubectl /usr/local/bin/kubectl
+  - printf "#\!/bin/sh\n\necho 1234" > ./kubectl
+  - cat ./kubectl
+  - chmod +x ./kubectl
+  - sudo mv ./kubectl /usr/local/bin/kubectl
+  - mkdir ${HOME}/.kube
+  - echo "$KUBE_CONFIG" | base64 --decode > ${HOME}/.kube/config
+  - ls ${HOME}/.kube
+  - npm i
+script: npm test && npm run lint && npm run build
+
+jobs:
+  include:
+    - stage: release
+      node_js: lts/*
+      script: skip
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx semantic-release
+        all_branches: true
