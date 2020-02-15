@@ -1,0 +1,1 @@
+export const proxyPlace = (s: string) => s.replace(/((http|https)\:\/\/[^\.]+\.[^\.]+[\.\w\d\-\/]*)/g, 'https://uniheart.herokuapp.com/proxy/pipe-file?url=$1')
