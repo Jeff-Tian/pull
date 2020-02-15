@@ -1,12 +1,14 @@
 import fs from 'fs';
+import R from 'ramda';
 import request from "request";
 import { promisify } from "./promisify";
+import { proxyPlace } from './replace';
 
 // tslint:disable-next-line: no-var-requires
 const FileNameExpert = require('file-name-expert').default;
 
-export const download = (fileUrl: string): Promise<any> =>
-  promisify(request.get)(fileUrl, { encoding: null });
+export const download = (fileUrl: string, proxy: (s: string) => string = (s: string) => s): Promise<any> =>
+  promisify(request.get)(proxy(fileUrl), { encoding: null }).then(R.tap(res => console.log(proxyPlace(res.body.toString('utf-8')))), R.tap(console.error));
 
 export const downloadToLocal = async (fileUrl: string): Promise<void> => {
   console.log('started to downloading...')

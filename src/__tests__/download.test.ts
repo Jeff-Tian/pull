@@ -1,8 +1,9 @@
-import { testingXlsx } from "./fixtures/testingFiles";
-import { download, downloadToLocal } from "../download";
 import fs from 'fs';
 import path from 'path';
+import { download, downloadToLocal } from "../download";
+import { testingXlsx } from "./fixtures/testingFiles";
 
+// tslint:disable-next-line: no-var-requires
 const FileNameExpert = require('file-name-expert').default;
 
 describe("download", () => {

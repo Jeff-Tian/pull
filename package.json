@@ -39,12 +39,14 @@
     "request": "^2.88.2",
     "rimraf": "^2.6.3",
     "shelljs": "^0.8.3",
-    "yargs": "^13.2.4"
+    "yargs": "^13.2.4",
+    "ramda": "^0.27.0"
   },
   "devDependencies": {
     "@semantic-release/git": "^8.0.0",
     "@types/jest": "^24.0.13",
     "@types/node": "^12.0.2",
+    "@types/ramda": "^0.26.41",
     "@types/request": "^2.48.4",
     "@types/rimraf": "^2.0.2",
     "@types/shelljs": "^0.8.5",

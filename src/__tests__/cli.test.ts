@@ -2,7 +2,7 @@ import coffee from 'coffee';
 import path from 'path';
 import { testingXlsx } from './fixtures/testingFiles';
 
-jest.setTimeout(7000)
+jest.setTimeout(20000)
 
 const options = {
   env: {
@@ -20,3 +20,12 @@ test('download to local', async () => {
     .expect('code', 0)
     .end();
 });
+
+test('download to buffer', async () => {
+  await coffee
+    .fork('src/index.ts', [`https://get.okteto.com`], options)
+    .expect('stdout', /\s*/)
+    .expect('stderr', /\s*/)
+    .expect('code', 0)
+    .end();
+})
