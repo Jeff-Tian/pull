@@ -38,7 +38,7 @@
     "file-name-expert": "^1.0.0",
     "request": "^2.88.2",
     "rimraf": "^2.6.3",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "yargs": "^13.2.4",
     "ramda": "^0.27.0"
   },
